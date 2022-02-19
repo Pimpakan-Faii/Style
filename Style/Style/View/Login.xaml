@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Style.ViewModels"
+             x:Class="Style.View.Login">
+
+    <ContentPage.BindingContext>
+        <local:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Margin="0,15,0,0" Text="Login" FontSize="45" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center"/>
+
+            <Frame HasShadow="True"
+BorderColor="DarkGray"
+CornerRadius="5"
+Margin="20"
+HeightRequest="300"
+                   WidthRequest="300"
+HorizontalOptions="Center"
+VerticalOptions="CenterAndExpand">
+                <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Entry Placeholder="Email" FontSize="Large" Grid.Column="0" Grid.Row="1"
+                   Text="{Binding Login.Email}"/>
+            <Entry Placeholder="Password" FontSize="Large" Grid.Column="0" Grid.Row="2" IsPassword="True"
+                   Text="{Binding Login.Password}"/>
+                    <Button Text="Login" Grid.Column="0" Grid.Row="3" FontSize="Large" CornerRadius="10"
+                    Command="{Binding LoginCommand}"/>
+            <Button Text="Register" Grid.Column="0" Grid.Row="4" FontSize="Large" CornerRadius="10"
+                    Command="{Binding RegisterCommand}"/>
+            <Label FontSize="Large" Grid.Column="0" Grid.Row="5"
+                   Text="{Binding Result}"/>
+
+                </Grid>
+
+        </Frame>
+
+        </StackLayout>
+
+
+
+    </ContentPage.Content>
+</ContentPage>

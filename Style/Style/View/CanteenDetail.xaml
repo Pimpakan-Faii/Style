@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Style.ViewModels"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             x:Class="Style.View.CanteenDetail">
+
+   
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+          
+                <Frame HasShadow="True"
+            BorderColor="DarkGray"
+            CornerRadius="5"
+            Margin="20"
+            WidthRequest="300"
+            HeightRequest="300"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand">
+                <StackLayout>
+
+
+                        <Label Text="{Binding selectedCanteen.ProductId}" IsVisible="false" x:Name="CanteenId"/>
+
+                        <Image HeightRequest="150" WidthRequest="150" Source="{Binding selectedCanteen.url}" />
+                    <Label Text="{Binding selectedCanteen.name}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                    <Label Text="{Binding selectedCanteen.time}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                    <fRating:RatingBar  x:Name="rating" 
+                     HorizontalOptions="Center" 
+                    ImageWidth="30" ImageHeight="30" 
+                    FlowDirection="LeftToRight" 
+                    EmptyStarImage="empty" FillStarImage="star" SelectedStarValue="{Binding selectedCanteen.Review}" 
+                   VerticalOptions="End"></fRating:RatingBar>
+
+                </StackLayout>
+
+            </Frame>
+                <StackLayout>
+                    <CollectionView ItemsSource="{Binding mycm}" SelectionMode="Single"
+                        SelectedItem="{Binding selectedCanteen}" SelectionChangedCommand="{Binding SelectedCommand}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1"
+                            Text="{Binding UserName}"
+                             FontSize="Large"
+                             FontAttributes="Bold" />
+                                    <Label Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding Text}"
+                            FontAttributes="Italic"
+                            FontSize="20"
+                            />
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+                <Entry x:Name="TEXENTER" Placeholder="Text Enter" Text=""/>
+               
+                <Button Clicked="Button_Clicked" Text="Send" />
+        </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

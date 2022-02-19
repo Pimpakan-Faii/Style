@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Style.ViewModels"
+             x:Class="Style.View.Promotion">
+
+    <ContentPage.BindingContext>
+        <local:PromotionViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding myp}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.RowSpan="2"
+                            Text="{Binding C_Name}"
+                            FontSize="Large"
+                            FontAttributes="Bold" />
+                            <Label Grid.RowSpan="2"
+                            Text="{Binding C_Store}"
+                            FontSize="Large"
+                            FontAttributes="Bold" />
+                            <Label Grid.RowSpan="2"
+                            Text="{Binding Expire}"
+                            FontSize="Large"
+                            FontAttributes="Bold" />
+                            <Label Grid.RowSpan="2"
+                            Text="{Binding Des}"
+                            FontSize="Large"
+                            FontAttributes="Bold" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

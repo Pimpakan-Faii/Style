@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Style.View"
+             x:Class="Style.View.MyTabbedPage1">
+  <!--Pages can be added as references or inline-->
+    <NavigationPage Title="โฮม">
+        <x:Arguments>
+            <local:CanteenList/>
+        </x:Arguments>
+    </NavigationPage>
+    <local:Promotion Title="โปรโมชัน"/>
+    <local:ProtectPage Title="ร้านปลอดภัย"/>
+    <local:RandomPage Title="สุ่มร้าน"/>
+    <local:ChangePSPage Title="ตั้งค่า"/>
+</TabbedPage>
